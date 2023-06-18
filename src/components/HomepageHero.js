@@ -3,7 +3,7 @@ import React from "react";
 const HomepageHero = (props) => {
     return(
         <section className="hero mb-[54px] md:mb-[96px] h-[340px] md:h-[500px]  flex items-center relative group">
-            <h1 className="cursor-default flex flex-col w-full text-[10vw] sm:text-[5.2vw] md:text-[8vw] xl:text-[126px] 2xl:text-[136px] leading-xs max-w-none sm:max-w-[50%] md:max-w-none z-10">
+            <h1 className="flex cursor-default flex-col w-full text-[10vw] sm:text-[5.2vw] md:text-[8vw] xl:text-[126px] 2xl:text-[136px] leading-xs max-w-none sm:max-w-[50%] md:max-w-none z-10">
                 <span>Connected experiences</span>
                 <span className="md:text-end">that fuel growth</span>
             </h1>

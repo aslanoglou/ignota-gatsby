@@ -77,7 +77,7 @@ module.exports = {
   plugins: [
     // Other plugins
     //     require('@tailwindcss/typography'),
-    require('tailwindcss-animatecss'),
+    // require('tailwindcss-animatecss'),
     require('@tailwindcss/forms'),
   ],
   safelist: [
