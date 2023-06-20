@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const NewsletterForm = (props) => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     // console.log(watch("nameRequired")); // watch input value by passing the name of it
     // console.log(watch("emailRequired")); // watch input value by passing the name of it
@@ -25,13 +25,13 @@ const NewsletterForm = (props) => {
                         Let us know your needs and we’ll contact you for more details
                     </p>
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)} onBlur ={handleSubmit(onSubmit)} autoComplete="off" className="md:pt-12 group form-invalid">
+                <form onSubmit={handleSubmit(onSubmit)} onBlur={handleSubmit(onSubmit)} autoComplete="off" className="md:pt-12 group form-invalid">
                     <div className="grid grid-cols-1 gap-6 mb-16">
                         <div className="relative z-10">
-                            <input id="input-name" placeholder=" " type="text" {...register("nameRequired", { required: "The name field is required" })} className="font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer" />
+                            <input id="input-name" placeholder=" " onBlur="" type="text" {...register("nameRequired", { required: "The name field is required" })} className="font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer" />
                             {/* errors will return when field validation fails  */}
                             {errors.nameRequired &&
-                                <p className="mt-2 text-sm text-ignota-white text-right">
+                                <p role="alert" className="mt-2 text-sm text-ignota-white text-right">
                                     {errors.nameRequired?.message}
                                 </p>}
                             <label
@@ -39,7 +39,7 @@ const NewsletterForm = (props) => {
                                 htmlFor="input-name">Your name</label>
                         </div>
                         <div className="relative z-10">
-                            <input id="input-email" placeholder=" " type="email" {...register("emailRequired", { required: "Email Address is required", validate: {
+                            <input id="input-email" placeholder=" " onBlur="" type="email" {...register("emailRequired", { required: "Email Address is required", validate: {
                                     maxLength: (v) =>
                                         v.length <= 50 || "The email should have at most 50 characters",
                                     matchPattern: (v) =>
@@ -56,7 +56,7 @@ const NewsletterForm = (props) => {
                                 htmlFor="input-email">Your email</label>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                            <button type="submit" className="text-ignota-black bg-ignota-pink-1 text-md hover:bg-ignota-pink-2 focus:ring-0 font-medium rounded-full px-8 py-4 focus:outline-none g-recaptcha">
+                            <button type="submit" className="text-ignota-black bg-ignota-pink-1 text-md hover:bg-ignota-pink-2 focus:ring-0 font-medium rounded-full px-8 py-4 focus:outline-none g-recaptcha max-w-[240px]">
                                 Submit
                             </button>
                             <ReCAPTCHA
