@@ -3,6 +3,7 @@ import Header from "../components/header";
 import HomepageHero from "../components/HomepageHero";
 import Services from "../components/Services";
 import ClientPortfolio from "../components/ClientPortfolio";
+import NewsletterForm from "../components/NewsletterForm";
 
 const IndexPage = () => {
   return (
@@ -23,6 +24,7 @@ const IndexPage = () => {
         </section>
         <Services></Services>
         <ClientPortfolio></ClientPortfolio>
+        <NewsletterForm></NewsletterForm>
       </main>
     </div>
   )
