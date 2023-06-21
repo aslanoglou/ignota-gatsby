@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {useInView} from "react-intersection-observer";
 import { useForm } from "react-hook-form";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -6,6 +6,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 const NewsletterForm = (props) => {
     const recaptchaRef = React.createRef();
     const { register, handleSubmit, formState: { errors }, watch } = useForm();
+    const [submitted, setSubmitted] = useState(false);
     const onSubmit = async data => {
         recaptchaRef.current.execute();
         try {
@@ -19,6 +20,7 @@ const NewsletterForm = (props) => {
 
             if (response.ok) {
                 // Handle successful response
+                setSubmitted(true);
                 console.log('Data submitted successfully');
             } else {
                 // Handle error response
@@ -54,7 +56,10 @@ const NewsletterForm = (props) => {
                     </p>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className="md:pt-12 group form-invalid" method="post" action="https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json">
-                    <div className="grid grid-cols-1 gap-6 mb-16">
+
+                    {submitted ?
+                        <p>Thank you for your submission</p>
+                     : <div className="grid grid-cols-1 gap-6 mb-16">
                         <div className="relative z-10">
                             <input id="input-name" placeholder=" " type="text" {...register("Name", { required: "The name field is required" })} className="font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer" />
                             {/* errors will return when field validation fails  */}
@@ -95,6 +100,7 @@ const NewsletterForm = (props) => {
                             />
                         </div>
                     </div>
+                    }
                 </form>
             </div>
 
