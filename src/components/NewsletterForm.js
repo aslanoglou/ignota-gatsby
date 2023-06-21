@@ -69,14 +69,14 @@ const NewsletterForm = (props) => {
                         <p className="text-md md:text-center">Thank you for your submission</p>
                      : <div className="grid grid-cols-1 gap-6 mb-16">
                         <div className="relative z-10">
-                            <input id="input-name" placeholder=" " type="text" {...register("Name", { required: "The name field is required" })} className="font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer" />
+                            <input id="input-name" placeholder=" " type="text" {...register("Name", { required: "The name field is required" })} className={`${errors.Name ? "!border-b-ignota-red" : ""} font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer`} />
                             {/* errors will return when field validation fails  */}
                             {errors.Name &&
-                                <p role="alert" className="mt-2 text-sm text-ignota-white text-right">
+                                <p role="alert" className="mt-2 text-sm text-ignota-red text-right">
                                     {errors.Name?.message}
                                 </p>}
                             <label
-                                className="absolute text-md text-ignota-white duration-300 transform -translate-y-8 scale-75 top-8 -z-5 origin-[0] peer-focus:left-0 peer-hover:text-ignota-gray-2 peer-focus:text-ignota-orange-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
+                                className={`${errors.Name&& "text-ignota-red"} absolute text-md text-ignota-white duration-300 transform -translate-y-8 scale-75 top-8 -z-5 origin-[0] peer-focus:left-0 peer-hover:text-ignota-gray-2 peer-focus:text-ignota-orange-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8`}
                                 htmlFor="input-name">Your name</label>
                         </div>
                         <div className="relative z-10">
@@ -86,14 +86,14 @@ const NewsletterForm = (props) => {
                                     matchPattern: (v) =>
                                         /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
                                         "Email address must be a valid address",
-                                } })}   className="font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white !bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer" />
+                                } })}   className={`${errors.Email ? "!border-b-ignota-red text-ignota-red" : ""} font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white !bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer`} />
                             {/* errors will return when field validation fails  */}
                             {errors.Email &&
-                                <p role="alert" className="mt-2 text-sm text-ignota-white text-right">
+                                <p role="alert" className="mt-2 text-sm !text-ignota-red text-right">
                                     {errors.Email?.message}
                                 </p>}
                             <label
-                                className="absolute text-md text-ignota-white duration-300 transform -translate-y-8 scale-75 top-8 -z-5 origin-[0] peer-focus:left-0 peer-hover:text-ignota-gray-2 peer-focus:text-ignota-orange-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
+                                className={`${errors.Email&& "text-ignota-red"} absolute text-md text-ignota-white duration-300 transform -translate-y-8 scale-75 top-8 -z-5 origin-[0] peer-focus:left-0 peer-hover:text-ignota-gray-2 peer-focus:text-ignota-orange-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8`}
                                 htmlFor="input-email">Your email</label>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
