@@ -4,8 +4,31 @@ import { useForm } from "react-hook-form";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const NewsletterForm = (props) => {
+    const recaptchaRef = React.createRef();
     const { register, handleSubmit, formState: { errors }, watch } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = async data => {
+        recaptchaRef.current.execute();
+        try {
+            const response = await fetch('https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                // Handle successful response
+                console.log('Data submitted successfully');
+            } else {
+                // Handle error response
+                console.error('Failed to submit data');
+            }
+        } catch (error) {
+            // Handle network error
+            console.error('An error occurred', error);
+        }
+    };
 
     const watchName = watch("Name");
     const watchEmail = watch("Email");
@@ -65,6 +88,8 @@ const NewsletterForm = (props) => {
                                 Submit
                             </button>
                             <ReCAPTCHA
+                                ref={recaptchaRef}
+                                size="invisible"
                                 sitekey="6LesxWQUAAAAAHj_TPfNxxQhzdI6dP1_a9WNtt_l"
                                 onChange={onChange}
                             />
