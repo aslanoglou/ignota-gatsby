@@ -65,7 +65,7 @@ const NewsletterForm = (props) => {
                                 Submit
                             </button>
                             <ReCAPTCHA
-                                sitekey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g"
+                                sitekey="6LesxWQUAAAAAHj_TPfNxxQhzdI6dP1_a9WNtt_l"
                                 onChange={onChange}
                             />
                         </div>
