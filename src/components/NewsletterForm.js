@@ -4,11 +4,21 @@ import { useForm } from "react-hook-form";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const NewsletterForm = (props) => {
-    const recaptchaRef = React.createRef();
     const { register, handleSubmit, formState: { errors }, watch } = useForm();
     const [submitted, setSubmitted] = useState(false);
+    const [recaptchaValue, setRecaptchaValue] = useState('');
+    const [recaptchaError, setRecaptchaError] = useState('');
+    const handleRecaptchaChange = (value) => {
+        setRecaptchaValue(value);
+        setRecaptchaError('');
+    };
     const onSubmit = async data => {
-        recaptchaRef.current.execute();
+        if (!recaptchaValue) {
+            // console.error('Please complete the reCAPTCHA');
+            return;
+        } else {
+            console.log(recaptchaValue)
+        }
         try {
             const response = await fetch('https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json', {
                 method: 'POST',
@@ -40,9 +50,7 @@ const NewsletterForm = (props) => {
     console.log(watchEmail); // watch input value by passing the name of it
 
     const {ref, inView} = useInView({triggerOnce: true});
-    const onChange = (value) => {
-        console.log("Captcha value:", value);
-    }
+
     return (
         <section ref={ref}>
             <div className="md:mb-[256px] mb-[181px] grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 data-[inviewport=false]:invisible data-[inviewport=false]:opacity-0 data-[inviewport=false]:tranform data-[inviewport=false]:translate-y-20 transition ease-in-out duration-300 delay-100" data-inviewport={inView.toString()}>
@@ -92,12 +100,16 @@ const NewsletterForm = (props) => {
                             <button type="submit" className="text-ignota-black bg-ignota-pink-1 text-md hover:bg-ignota-pink-2 focus:ring-0 font-medium rounded-full px-8 py-4 focus:outline-none g-recaptcha max-w-[240px]">
                                 Submit
                             </button>
-                            <ReCAPTCHA
-                                ref={recaptchaRef}
-                                size="invisible"
-                                sitekey="6LesxWQUAAAAAHj_TPfNxxQhzdI6dP1_a9WNtt_l"
-                                onChange={onChange}
-                            />
+                            <div>
+                                <ReCAPTCHA
+                                    sitekey="6LesxWQUAAAAAHj_TPfNxxQhzdI6dP1_a9WNtt_l"
+                                    onChange={handleRecaptchaChange}
+                                />
+                                {recaptchaError && <p>{recaptchaError}</p>}
+                            </div>
+
+
+
                         </div>
                     </div>
                     }
