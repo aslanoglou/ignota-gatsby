@@ -58,7 +58,7 @@ const NewsletterForm = (props) => {
                 <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className="md:pt-12 group form-invalid" method="post" action="https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json">
 
                     {submitted ?
-                        <p>Thank you for your submission</p>
+                        <p className="text-md md:text-center">Thank you for your submission</p>
                      : <div className="grid grid-cols-1 gap-6 mb-16">
                         <div className="relative z-10">
                             <input id="input-name" placeholder=" " type="text" {...register("Name", { required: "The name field is required" })} className="font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer" />
