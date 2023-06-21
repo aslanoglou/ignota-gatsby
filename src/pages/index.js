@@ -1,5 +1,5 @@
 import * as React from "react"
-import Header from "../components/header";
+import Header from "../components/Header";
 import HomepageHero from "../components/HomepageHero";
 import Services from "../components/Services";
 import ClientPortfolio from "../components/ClientPortfolio";

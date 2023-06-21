@@ -4,10 +4,15 @@ import { useForm } from "react-hook-form";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const NewsletterForm = (props) => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, watch } = useForm();
     const onSubmit = data => console.log(data);
-    // console.log(watch("nameRequired")); // watch input value by passing the name of it
-    // console.log(watch("emailRequired")); // watch input value by passing the name of it
+
+    const watchName = watch("Name");
+    const watchEmail = watch("Email");
+
+
+    console.log(watchName); // watch input value by passing the name of it
+    console.log(watchEmail); // watch input value by passing the name of it
 
     const {ref, inView} = useInView({triggerOnce: true});
     const onChange = (value) => {
@@ -25,21 +30,21 @@ const NewsletterForm = (props) => {
                         Let us know your needs and we’ll contact you for more details
                     </p>
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)} onBlur={handleSubmit(onSubmit)} autoComplete="off" className="md:pt-12 group form-invalid">
+                <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className="md:pt-12 group form-invalid" method="post" action="https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json">
                     <div className="grid grid-cols-1 gap-6 mb-16">
                         <div className="relative z-10">
-                            <input id="input-name" placeholder=" " onBlur="" type="text" {...register("nameRequired", { required: "The name field is required" })} className="font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer" />
+                            <input id="input-name" placeholder=" " type="text" {...register("Name", { required: "The name field is required" })} className="font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer" />
                             {/* errors will return when field validation fails  */}
-                            {errors.nameRequired &&
+                            {errors.Name &&
                                 <p role="alert" className="mt-2 text-sm text-ignota-white text-right">
-                                    {errors.nameRequired?.message}
+                                    {errors.Name?.message}
                                 </p>}
                             <label
                                 className="absolute text-md text-ignota-white duration-300 transform -translate-y-8 scale-75 top-8 -z-5 origin-[0] peer-focus:left-0 peer-hover:text-ignota-gray-2 peer-focus:text-ignota-orange-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
                                 htmlFor="input-name">Your name</label>
                         </div>
                         <div className="relative z-10">
-                            <input id="input-email" placeholder=" " onBlur="" type="email" {...register("emailRequired", { required: "Email Address is required", validate: {
+                            <input id="input-email" placeholder=" " type="text" {...register("Email", { required: "Email Address is required", validate: {
                                     maxLength: (v) =>
                                         v.length <= 50 || "The email should have at most 50 characters",
                                     matchPattern: (v) =>
@@ -47,9 +52,9 @@ const NewsletterForm = (props) => {
                                         "Email address must be a valid address",
                                 } })}   className="font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white !bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer" />
                             {/* errors will return when field validation fails  */}
-                            {errors.emailRequired &&
+                            {errors.Email &&
                                 <p role="alert" className="mt-2 text-sm text-ignota-white text-right">
-                                    {errors.emailRequired?.message}
+                                    {errors.Email?.message}
                                 </p>}
                             <label
                                 className="absolute text-md text-ignota-white duration-300 transform -translate-y-8 scale-75 top-8 -z-5 origin-[0] peer-focus:left-0 peer-hover:text-ignota-gray-2 peer-focus:text-ignota-orange-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
