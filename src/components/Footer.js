@@ -5,7 +5,7 @@ import IgnotaLogo from "../images/logo.svg";
 const Footer = (props) => {
     const { ref, inView } = useInView({triggerOnce: true});
     return (
-    <footer ref={ref} className="py-10 2xl:container 2xl:mx-auto">
+    <footer ref={ref} className="py-10 2xl:container 2xl:mx-auto overflow-hidden">
         <div className="flex flex-col justify-between lg:flex-row data-[inviewport=false]:invisible data-[inviewport=false]:opacity-0 data-[inviewport=false]:tranform data-[inviewport=false]:translate-y-20 transition ease-in-out duration-300 delay-100" data-inviewport={inView.toString()}>
             <a href="/">
                 <img width="93" height="25" src={IgnotaLogo} className="inline-block" alt="Ignota" />
