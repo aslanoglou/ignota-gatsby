@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const NewsletterForm = () => {
-    const { register, handleSubmit, formState: { errors }, watch } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const [submitted, setSubmitted] = useState(false);
     const [recaptchaValue, setRecaptchaValue] = useState('');
     const [recaptchaError, setRecaptchaError] = useState('');
@@ -17,7 +17,7 @@ const NewsletterForm = () => {
             // console.error('Please complete the reCAPTCHA');
             return;
         } else {
-            console.log(recaptchaValue)
+            // console.log(recaptchaValue)
         }
         try {
             const response = await fetch('https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json', {
@@ -31,23 +31,23 @@ const NewsletterForm = () => {
             if (response.ok) {
                 // Handle successful response
                 setSubmitted(true);
-                console.log('Data submitted successfully');
+                // console.log('Data submitted successfully');
             } else {
                 // Handle error response
-                console.error('Failed to submit data');
+                // console.error('Failed to submit data');
             }
         } catch (error) {
             // Handle network error
-            console.error('An error occurred', error);
+            // console.error('An error occurred', error);
         }
     };
 
-    const watchName = watch("Name");
-    const watchEmail = watch("Email");
+    // const watchName = watch("Name");
+    // const watchEmail = watch("Email");
 
 
-    console.log(watchName); // watch input value by passing the name of it
-    console.log(watchEmail); // watch input value by passing the name of it
+    // console.log(watchName); // watch input value by passing the name of it
+    // console.log(watchEmail); // watch input value by passing the name of it
 
     const {ref, inView} = useInView({triggerOnce: true});
 

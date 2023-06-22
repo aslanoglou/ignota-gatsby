@@ -4,7 +4,9 @@
 module.exports = {
     siteMetadata: {
         title: `Ignota`,
-        siteUrl: `https://ignota.io/`
+        siteUrl: `https://ignota.io/`,
+        image: `/images/icon.png`,
+        description: `We help accelerate your digital transformation journenpm instally by delivering customer-centric experiences that are designed to maximize your revenue`,
     },
     plugins: ["gatsby-plugin-postcss", "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sitemap",
         {
