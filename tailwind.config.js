@@ -54,7 +54,7 @@ module.exports = {
       colors: {
         'ignota-black': '#0B0B0C',
         'ignota-white': '#FCFCFC',
-        'ignota-orange': '#FF5C00',
+        'ignota-orange': '#ff5c00',
         'ignota-orange-2': '#FF9D66',
         'ignota-purple': '#730ADE',
         'ignota-hover': '#FE9496',
