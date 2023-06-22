@@ -2,7 +2,7 @@ import React from "react";
 import {useInView} from "react-intersection-observer";
 import IgnotaLogo from "../images/logo.svg";
 
-const Footer = (props) => {
+const Footer = () => {
     const { ref, inView } = useInView({triggerOnce: true});
     return (
     <footer ref={ref} className="py-10 2xl:container 2xl:mx-auto overflow-hidden">

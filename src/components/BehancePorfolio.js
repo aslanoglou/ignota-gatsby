@@ -1,7 +1,7 @@
 import React from "react";
 import {useInView} from "react-intersection-observer";
 
-const BehancePortfolio = (props) => {
+const BehancePortfolio = () => {
     const { ref, inView } = useInView({triggerOnce: true});
     return (
         <div ref={ref}>
@@ -12,11 +12,11 @@ const BehancePortfolio = (props) => {
                 </h2>
                 <ul className="grid grid-cols-1 gap-12 lg:grid-cols-3">
                     <li>
-                        <a className="flex lg:flex-col items-center lg:items-start hover:text-ignota-hover" href="/"
-                           target="_blank">
+                        <a className="flex lg:flex-col items-center lg:items-start hover:text-ignota-hover" href="https://www.behance.net/ignota_io"
+                           target="_blank" rel="noreferrer">
                             <svg className="mr-3" fill="none" height="16" viewBox="0 0 17 16" width="17"
                                  xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_1912_989)">
+                                <g>
                                     <rect fill="currentColor" height="1" width="14" x="2.49951"/>
                                     <rect fill="currentColor" height="1" transform="rotate(-90 15.4995 14)" width="14"
                                           x="15.4995" y="14"/>

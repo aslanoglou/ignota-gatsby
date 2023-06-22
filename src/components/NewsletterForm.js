@@ -3,7 +3,7 @@ import {useInView} from "react-intersection-observer";
 import { useForm } from "react-hook-form";
 import ReCAPTCHA from "react-google-recaptcha";
 
-const NewsletterForm = (props) => {
+const NewsletterForm = () => {
     const { register, handleSubmit, formState: { errors }, watch } = useForm();
     const [submitted, setSubmitted] = useState(false);
     const [recaptchaValue, setRecaptchaValue] = useState('');

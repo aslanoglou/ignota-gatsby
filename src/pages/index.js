@@ -30,7 +30,7 @@ const IndexPage = () => {
         <Services></Services>
         <ClientPortfolio></ClientPortfolio>
         <NewsletterForm></NewsletterForm>
-        <div className="md:mb-[256px] mb-[181px] grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-12 md:gap-20">
+        <div className="md:mb-[256px] mb-[181px] grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-20">
           <Follow></Follow>
           <BehancePorfolio></BehancePorfolio>
         </div>
