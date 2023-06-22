@@ -1,14 +1,6 @@
 import React from "react";
+import { StaticImage } from "gatsby-plugin-image"
 import { useInView } from "react-intersection-observer";
-import DeiIcon from "../images/logo-dei.svg";
-import AlphaIcon from "../images/logo-alpha.svg";
-import ErgoIcon from "../images/logo-ergo.svg";
-import DeddieIcon from "../images/logo-deddie.svg";
-import MetroIcon from "../images/logo-metro.svg";
-import Sport24Icon from "../images/logo-sport24.svg";
-import FlexfinIcon from "../images/logo-flexfin.svg";
-import TrainmeIcon from "../images/logo-trainme.svg";
-import OsevenIcon from "../images/logo-oseven.svg";
 
 
 const ClientPortfolio =() =>{
@@ -22,15 +14,15 @@ const ClientPortfolio =() =>{
                 </h2>
                 <div className="md:pt-12">
                     <ul className="grid gap-12 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3">
-                        <li><img alt="DEH" height="69" src={DeiIcon} width="160"/></li>
-                        <li><img alt="ALPHA BANK" height="69" src={AlphaIcon} width="160"/></li>
-                        <li><img alt="ERGO" height="69" src={ErgoIcon} width="160"/></li>
-                        <li><img alt="DEDDIE" height="69" src={DeddieIcon} width="160"/></li>
-                        <li><img alt="METRO CASH & CARRY" height="69" src={MetroIcon} width="160"/></li>
-                        <li><img alt="SPORT24" height="69" src={Sport24Icon} width="160"/></li>
-                        <li><img alt="Flexfin" height="69" src={FlexfinIcon} width="160"/></li>
-                        <li><img alt="trainme" height="69" src={TrainmeIcon} width="160"/></li>
-                        <li><img alt="OSEVEN" height="69" src={OsevenIcon} width="160"/></li>
+                        <li><StaticImage src="../images/logo-dei.svg" alt="DEH"></StaticImage></li>
+                        <li><StaticImage src="../images/logo-alpha.svg" alt="ALPHA BANK"></StaticImage></li>
+                        <li><StaticImage src="../images/logo-ergo.svg" alt="ERGO"></StaticImage></li>
+                        <li><StaticImage src="../images/logo-deddie.svg" alt="DEDDIE"></StaticImage></li>
+                        <li><StaticImage src="../images/logo-metro.svg" alt="METRO CASH & CARRY"></StaticImage></li>
+                        <li><StaticImage src="../images/logo-sport24.svg" alt="SPORT24"></StaticImage></li>
+                        <li><StaticImage src="../images/logo-flexfin.svg" alt="Flexfin"></StaticImage></li>
+                        <li><StaticImage src="../images/logo-trainme.svg" alt="trainme"></StaticImage></li>
+                        <li><StaticImage src="../images/logo-oseven.svg" alt="OSEVEN"></StaticImage></li>
                     </ul>
                 </div>
             </div>

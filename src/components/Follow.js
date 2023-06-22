@@ -1,5 +1,7 @@
 import React from "react";
+import Arrow from "../images/arrow-top-right.svg";
 import {useInView} from "react-intersection-observer";
+
 
 const Follow = () => {
     const { ref, inView } = useInView({triggerOnce: true});
@@ -14,59 +16,20 @@ const Follow = () => {
                     <li>
                         <a className="flex lg:flex-col items-center lg:items-start hover:text-ignota-hover" href="https://www.facebook.com/ignota.io"
                            target="_blank" rel="noreferrer">
-                            <svg className="mr-3" fill="none" height="16" viewBox="0 0 17 16" width="17"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g >
-                                    <rect fill="currentColor" height="1" width="14" x="2.49951"/>
-                                    <rect fill="currentColor" height="1" transform="rotate(-90 15.4995 14)" width="14"
-                                          x="15.4995" y="14"/>
-                                    <path d="M15.4331 1.06665L0.999512 15.5002" stroke="currentcolor"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_1912_989">
-                                        <rect fill="currentColor" height="16" transform="translate(0.5)" width="16"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
+                            <Arrow></Arrow>
                             <span>Facebook: @ignota.io</span>
                         </a>
                     </li>
                     <li>
                         <a className="flex lg:flex-col items-center lg:items-start hover:text-ignota-hover" href="https://www.instagram.com/ignota.io/"
                            target="_blank" rel="noreferrer">
-                            <svg className="mr-3" fill="none" height="16" viewBox="0 0 17 16" width="17"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g >
-                                    <rect fill="currentColor" height="1" width="14" x="2.49951"/>
-                                    <rect fill="currentColor" height="1" transform="rotate(-90 15.4995 14)" width="14"
-                                          x="15.4995" y="14"/>
-                                    <path d="M15.4331 1.06665L0.999512 15.5002" stroke="currentcolor"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_1912_989">
-                                        <rect fill="currentColor" height="16" transform="translate(0.5)" width="16"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
+                            <Arrow></Arrow>
                             <span>Instagram: @ignota.io</span></a>
                     </li>
                     <li>
                         <a className="flex lg:flex-col items-center lg:items-start hover:text-ignota-hover" href="https://www.linkedin.com/company/ignota/about/"
                            target="_blank" rel="noreferrer">
-                            <svg className="mr-3" fill="none" height="16" viewBox="0 0 17 16" width="17"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g >
-                                    <rect fill="currentColor" height="1" width="14" x="2.49951"/>
-                                    <rect fill="currentColor" height="1" transform="rotate(-90 15.4995 14)" width="14"
-                                          x="15.4995" y="14"/>
-                                    <path d="M15.4331 1.06665L0.999512 15.5002" stroke="currentcolor"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_1912_989">
-                                        <rect fill="currentColor" height="16" transform="translate(0.5)" width="16"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
+                            <Arrow></Arrow>
                             <span>Linkedin: ignota.io</span></a>
                     </li>
                 </ul>

@@ -1,8 +1,6 @@
 import React from "react";
+import { StaticImage } from "gatsby-plugin-image";
 import { useInView } from "react-intersection-observer";
-import EnvisionIcon from "../images/envision-icon.svg";
-import CraftIcon from "../images/craft-icon.svg";
-import OptimizeIcon from "../images/optimize-icon.svg";
 const Services = () =>{
     const { ref, inView } = useInView({triggerOnce: true});
     return(
@@ -14,7 +12,7 @@ const Services = () =>{
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
                     <div>
-                        <img src={EnvisionIcon} alt="Envision"/>
+                        <StaticImage src="../images/envision-icon.svg" alt="Envision"></StaticImage>
                         <h3 className="relative font-NeueMachina text-lg leading-sm pb-6 mb-6 mt-4 after:block after:absolute after:bottom-0 after:border-t after:border-t-ignota-white data-[inviewport=false]:after:w-0 data-[inviewport=true]:after:w-full transition after:ease-in-out after:duration-500 after:delay-700"
                             data-inviewport={inView.toString()}>
                             Envision
@@ -26,7 +24,7 @@ const Services = () =>{
                         </ul>
                     </div>
                     <div>
-                        <img src={CraftIcon} alt="Craft"/>
+                        <StaticImage src="../images/craft-icon.svg" alt="Craft"></StaticImage>
                         <h3 className="relative font-machina text-lg leading-sm pb-6 mb-6 mt-4 after:block after:absolute after:bottom-0 after:border-t after:border-t-ignota-white data-[inviewport=false]:after:w-0 data-[inviewport=true]:after:w-full transition after:ease-in-out after:duration-500 after:delay-700"
                             data-inviewport={inView.toString()}>
                             Craft
@@ -38,7 +36,7 @@ const Services = () =>{
                         </ul>
                     </div>
                     <div>
-                        <img src={OptimizeIcon} alt="Optimize"/>
+                        <StaticImage src="../images/optimize-icon.svg" alt="Optimize"></StaticImage>
                         <h3 className="relative font-machina text-lg leading-sm pb-6 mb-6 mt-4 after:block after:absolute after:bottom-0 after:border-t after:border-t-ignota-white data-[inviewport=false]:after:w-0 data-[inviewport=true]:after:w-full transition after:ease-in-out after:duration-500 after:delay-700"
                             data-inviewport={inView.toString()}>
                             Optimize
