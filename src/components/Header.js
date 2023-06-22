@@ -5,7 +5,7 @@ import {Link} from "gatsby";
 const Header = () => {
     return (
             <header className="2xl:container 2xl:mx-auto py-8 md:mb-[124px]" >
-                <Link to="/">
+                <Link to="/test">
                     <StaticImage src="../images/logo.svg" alt="Ignota"></StaticImage>
                 </Link>
             </header>
