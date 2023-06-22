@@ -16,20 +16,20 @@ const Follow = () => {
                     <li>
                         <a className="flex lg:flex-col items-center lg:items-start hover:text-ignota-hover" href="https://www.facebook.com/ignota.io"
                            target="_blank" rel="noreferrer">
-                            <Arrow></Arrow>
+                            <Arrow className="mr-3"></Arrow>
                             <span>Facebook: @ignota.io</span>
                         </a>
                     </li>
                     <li>
                         <a className="flex lg:flex-col items-center lg:items-start hover:text-ignota-hover" href="https://www.instagram.com/ignota.io/"
                            target="_blank" rel="noreferrer">
-                            <Arrow></Arrow>
+                            <Arrow className="mr-3"></Arrow>
                             <span>Instagram: @ignota.io</span></a>
                     </li>
                     <li>
                         <a className="flex lg:flex-col items-center lg:items-start hover:text-ignota-hover" href="https://www.linkedin.com/company/ignota/about/"
                            target="_blank" rel="noreferrer">
-                            <Arrow></Arrow>
+                            <Arrow className="mr-3"></Arrow>
                             <span>Linkedin: ignota.io</span></a>
                     </li>
                 </ul>
