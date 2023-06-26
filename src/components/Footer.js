@@ -8,7 +8,7 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
     return (
     <footer ref={ref} className="py-10 2xl:container 2xl:mx-auto overflow-hidden">
-        <div className="flex flex-col justify-between lg:flex-row data-[inviewport=false]:invisible data-[inviewport=false]:opacity-0 data-[inviewport=false]:tranform data-[inviewport=false]:translate-y-20 transition ease-in-out duration-300 delay-100" data-inviewport={inView.toString()}>
+        <div className="flex flex-col justify-between lg:flex-row data-[inviewport=false]:invisible data-[inviewport=false]:opacity-0 data-[inviewport=false]:tranform data-[inviewport=false]:translate-y-20 transition ease-in-out duration-700 delay-300" data-inviewport={inView.toString()}>
             <Link to="/">
                 <StaticImage src="../images/logo.svg" alt="Ignota" className="inline-block"></StaticImage>
             </Link>

@@ -5,15 +5,15 @@ const Services = () =>{
     const { ref, inView } = useInView({triggerOnce: true});
     return(
         <section ref={ref}>
-            <div className="md:mb-[256px] mb-[181px] cursor-default data-[inviewport=false]:invisible data-[inviewport=false]:opacity-0 data-[inviewport=false]:tranform data-[inviewport=false]:translate-y-20 transition ease-in-out duration-300 delay-100" data-inviewport={inView.toString()}>
-                <h2 className="text-lg md:text-[40px] leading-sm relative pt-12 mb-[50px] font-NeueMachina text-ignota-white before:content-[''] before:block before:top-0 before:absolute data-[inviewport=false]:before:w-0 before:border-t before:border-t-ignota-white data-[inviewport=true]:before:w-[80px] transition before:ease-in-out before:duration-300 before:delay-700"
+            <div className="md:mb-[256px] mb-[181px] cursor-default data-[inviewport=false]:invisible data-[inviewport=false]:opacity-0 data-[inviewport=false]:tranform data-[inviewport=false]:translate-y-20 transition ease-in-out duration-700 delay-300" data-inviewport={inView.toString()}>
+                <h2 className="text-lg md:text-[40px] leading-sm relative pt-12 mb-[50px] font-NeueMachina text-ignota-white before:content-[''] before:block before:top-0 before:absolute data-[inviewport=false]:before:w-0 before:border-t before:border-t-ignota-white data-[inviewport=true]:before:w-[80px] transition before:ease-in-out before:duration-700 before:delay-1000"
                     data-inviewport={inView.toString()} >
                     Our services
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
                     <div>
                         <StaticImage src="../images/envision-icon.svg" alt="Envision"></StaticImage>
-                        <h3 className="relative font-NeueMachina text-lg leading-sm pb-6 mb-6 mt-4 after:block after:absolute after:bottom-0 after:border-t after:border-t-ignota-white data-[inviewport=false]:after:w-0 data-[inviewport=true]:after:w-full transition after:ease-in-out after:duration-500 after:delay-700"
+                        <h3 className="relative font-NeueMachina text-lg leading-sm pb-6 mb-6 mt-4 after:block after:absolute after:bottom-0 after:border-t after:border-t-ignota-white data-[inviewport=false]:after:w-0 data-[inviewport=true]:after:w-full transition after:ease-in-out after:duration-700 after:delay-1000"
                             data-inviewport={inView.toString()}>
                             Envision
                         </h3>
@@ -25,7 +25,7 @@ const Services = () =>{
                     </div>
                     <div>
                         <StaticImage src="../images/craft-icon.svg" alt="Craft"></StaticImage>
-                        <h3 className="relative font-machina text-lg leading-sm pb-6 mb-6 mt-4 after:block after:absolute after:bottom-0 after:border-t after:border-t-ignota-white data-[inviewport=false]:after:w-0 data-[inviewport=true]:after:w-full transition after:ease-in-out after:duration-500 after:delay-700"
+                        <h3 className="relative font-machina text-lg leading-sm pb-6 mb-6 mt-4 after:block after:absolute after:bottom-0 after:border-t after:border-t-ignota-white data-[inviewport=false]:after:w-0 data-[inviewport=true]:after:w-full transition after:ease-in-out after:duration-700 after:delay-1000"
                             data-inviewport={inView.toString()}>
                             Craft
                         </h3>
@@ -37,7 +37,7 @@ const Services = () =>{
                     </div>
                     <div>
                         <StaticImage src="../images/optimize-icon.svg" alt="Optimize"></StaticImage>
-                        <h3 className="relative font-machina text-lg leading-sm pb-6 mb-6 mt-4 after:block after:absolute after:bottom-0 after:border-t after:border-t-ignota-white data-[inviewport=false]:after:w-0 data-[inviewport=true]:after:w-full transition after:ease-in-out after:duration-500 after:delay-700"
+                        <h3 className="relative font-machina text-lg leading-sm pb-6 mb-6 mt-4 after:block after:absolute after:bottom-0 after:border-t after:border-t-ignota-white data-[inviewport=false]:after:w-0 data-[inviewport=true]:after:w-full transition after:ease-in-out after:duration-700 after:delay-1000"
                             data-inviewport={inView.toString()}>
                             Optimize
                         </h3>
