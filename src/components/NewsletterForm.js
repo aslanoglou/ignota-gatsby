@@ -102,7 +102,7 @@ const NewsletterForm = () => {
                             </button>
                             <div>
                                 <ReCAPTCHA
-                                    sitekey="6LesxWQUAAAAAHj_TPfNxxQhzdI6dP1_a9WNtt_l"
+                                    sitekey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g"
                                     onChange={handleRecaptchaChange}
                                 />
                                 {recaptchaError && <p>{recaptchaError}</p>}
