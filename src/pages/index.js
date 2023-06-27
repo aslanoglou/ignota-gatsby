@@ -18,8 +18,7 @@ const IndexPage = () => {
         <HomepageHero></HomepageHero>
         <section className="md:mb-[256px] mb-[181px]"  ref={ref}>
           <p className="xl:max-w-[840px] text-md mb-12 data-[inviewport=false]:invisible data-[inviewport=false]:opacity-0 data-[inviewport=false]:tranform data-[inviewport=false]:translate-y-20 transition ease-in-out duration-700 delay-300" data-inviewport={inView.toString()}>
-            We help accelerate your digital transformation journenpm instally by delivering customer-centric experiences
-            that are designed to maximize your revenue
+            We help accelerate your digital transformation journey by delivering customer-centric experiences that are designed to maximize your revenue
           </p>
         </section>
         <section className="md:mb-[256px] mb-[181px] pb-[56.25%] relative">
