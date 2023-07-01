@@ -9,8 +9,7 @@ const IndexPage = () => {
         <div className="bg-ignota-black text-ignota-white px-4 md:px-[36px] leading-normal overflow-x-hidden">
             <Header></Header>
             <main className="2xl:container 2xl:mx-auto">
-                <StaticImage src="../images/inner-hero-1.svg" alt="Envision"
-                             className='w-[100%] h-auto mb-[66px]'></StaticImage>
+                <StaticImage src="../images/inner-hero-1.svg" alt="Envision" className="mb-[66px]"></StaticImage>
                 <div className="md:flex">
                     <div className="md:flex-[25%] md:flex-grow-0 md:flex-shrink-0">
                         <Link to="/">Back</Link>
