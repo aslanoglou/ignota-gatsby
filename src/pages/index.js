@@ -14,7 +14,7 @@ const IndexPage = () => {
   return (
     <div className="bg-ignota-black text-ignota-white px-4 md:px-[36px] leading-normal overflow-x-hidden">
       <Header></Header>
-      <main className="2xl:container 2xl:mx-auto">
+      <main className="2xl:container 2xl:mx-auto mt-[124px]">
         <HomepageHero></HomepageHero>
         <section className="md:mb-[256px] mb-[181px]"  ref={ref}>
           <p className="xl:max-w-[784px] text-md mb-12 data-[inviewport=false]:invisible data-[inviewport=false]:opacity-0 data-[inviewport=false]:tranform data-[inviewport=false]:translate-y-20 transition ease-in-out duration-700 delay-300" data-inviewport={inView.toString()}>
