@@ -13,7 +13,7 @@ const IndexPage = () => {
                 <StaticImage src="../images/inner-hero-1.svg" alt="Terms and conditions" className="mb-[66px]"></StaticImage>
                 <div className="md:flex">
                     <div className="md:flex-[25%] md:flex-grow-0 md:flex-shrink-0">
-                        <Link to="/" className='rounded-full border-2 px-8 py-4 text-[24px] inline-flex items-center hover:text-ignota-hover hover:border-ignota-hover'>
+                        <Link to="/" className='rounded-full border-2 px-8 py-4 text-[24px] inline-flex items-center hover:text-ignota-hover hover:border-ignota-hover mb-[40px]'>
                             <Arrow className="mr-4"></Arrow>
                             Back</Link>
                     </div>
