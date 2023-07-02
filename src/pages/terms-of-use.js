@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer"
 import {Link} from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
+import Arrow from "../images/arrow-left.svg";
 
 const IndexPage = () => {
     return (
@@ -12,12 +13,14 @@ const IndexPage = () => {
                 <StaticImage src="../images/inner-hero-1.svg" alt="Terms and conditions" className="mb-[66px]"></StaticImage>
                 <div className="md:flex">
                     <div className="md:flex-[25%] md:flex-grow-0 md:flex-shrink-0">
-                        <Link to="/">Back</Link>
+                        <Link to="/" className='rounded-full border-2 px-8 py-4 text-[24px] inline-flex items-center hover:text-ignota-hover hover:border-ignota-hover'>
+                            <Arrow className="mr-4"></Arrow>
+                            Back</Link>
                     </div>
-                    <div className="md:flex-auto">
-                        <h1>Terms and conditions</h1>
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non auctor diam. Maecenas ac
+                    <div className="md:flex-auto mb-[61px]">
+                        <h1 className="text-lg md:text-[40px] mb-[48px]">Terms and conditions</h1>
+                        <h2 className="text-[18px] mb-6 font-semibold">Lorem ipsum dolor sit amet, consectetur</h2>
+                        <p className="leading-6 mb-[48px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non auctor diam. Maecenas ac
                             egestas lectus. Ut imperdiet justo vel nisi lobortis varius. Mauris sit amet maximus neque.
                             In semper sagittis ante, eu viverra risus finibus vitae. Pellentesque ut neque blandit,
                             placerat est et, commodo dui. Sed sagittis eros non porttitor tristique.
@@ -45,8 +48,8 @@ const IndexPage = () => {
                             convallis elit. Nullam cursus porta cursus. Aenean mattis elit at neque commodo, non feugiat
                             lacus lacinia. Vestibulum eget tincidunt quam.
                         </p>
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non auctor diam. Maecenas ac
+                        <h2 className="text-[18px] mb-6 font-semibold">Lorem ipsum dolor sit amet, consectetur</h2>
+                        <p className="leading-6 mb-[48px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non auctor diam. Maecenas ac
                             egestas lectus. Ut imperdiet justo vel nisi lobortis varius. Mauris sit amet maximus neque.
                             In semper sagittis ante, eu viverra risus finibus vitae. Pellentesque ut neque blandit,
                             placerat est et, commodo dui. Sed sagittis eros non porttitor tristique. nibh aliquet
@@ -63,8 +66,8 @@ const IndexPage = () => {
                             convallis elit. Nullam cursus porta cursus. Aenean mattis elit at neque commodo, non feugiat
                             lacus lacinia. Vestibulum eget tincidunt quam.
                         </p>
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non auctor diam. Maecenas ac
+                        <h2 className="text-[18px] mb-6 font-semibold">Lorem ipsum dolor sit amet, consectetur</h2>
+                        <p className="leading-6 mb-[48px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non auctor diam. Maecenas ac
                             egestas lectus. Ut imperdiet justo vel nisi lobortis varius. Mauris sit amet maximus neque.
                             In semper sagittis ante, eu viverra risus finibus vitae. Pellentesque ut neque blandit,
                             placerat est et, commodo dui. Sed sagittis eros non porttitor tristique. nibh aliquet
@@ -82,7 +85,7 @@ const IndexPage = () => {
                             Mauris sit amet maximus neque. In semper sagittis ante, eu viverra risus finibus vitae.
                             Pellentesque ut neque blandit, placerat est et, commodo dui. Sed sagittis eros non porttitor
                             tristique.</p>
-                        <p>In quis dolor lacus. Integer a interdum turpis. Nam vitae justo feugiat, lacinia nisi nec,
+                        <p className="leading-6 mb-[48px]">In quis dolor lacus. Integer a interdum turpis. Nam vitae justo feugiat, lacinia nisi nec,
                             pharetra libero. Vivamus a placerat massa. Suspendisse eleifend vulputate purus, ac viverra
                             ex convallis semper. Phasellus ultrices sem ut nibh aliquet feugiat. Vestibulum in tempus
                             justo. Proin porta condimentum efficitur. Mauris sit amet feugiat sapien, eu condimentum
@@ -99,7 +102,7 @@ const IndexPage = () => {
                             elementum. Praesent ac est eget sapien condimentum tempus vitae et orci. Sed facilisis
                             turpis eu ultrices fermentum. Quisque eu posuere elit. Vestibulum ac felis porta, euismod
                             libero eu, pellentesque dui.</p>
-                        <p> Maecenas pharetra, ante et finibus blandit, nibh ante gravida nisl, efficitur finibus velit
+                        <p className="leading-6 mb-[48px]"> Maecenas pharetra, ante et finibus blandit, nibh ante gravida nisl, efficitur finibus velit
                             risus pharetra lectus. Quisque efficitur enim erat, in vulputate justo varius a. Curabitur
                             ullamcorper metus eget cursus malesuada. Nullam non est egestas, elementum augue eu, maximus
                             massa. Nam scelerisque semper sem vel pellentesque. Sed sed mi convallis, auctor odio vitae,
