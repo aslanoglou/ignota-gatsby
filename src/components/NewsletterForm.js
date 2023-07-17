@@ -60,7 +60,7 @@ const NewsletterForm = () => {
                         Let’s engage
                     </h2>
                     <p className="text-md">
-                        Let us know your needs and we’ll contact you for more details
+                        How can we address you?
                     </p>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className="md:pt-12 group form-invalid" method="post" action="https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json">

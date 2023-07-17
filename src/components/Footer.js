@@ -13,7 +13,8 @@ const Footer = () => {
                 <StaticImage src="../images/logo.svg" alt="Ignota" className="inline-block"></StaticImage>
             </Link>
             <ul className="flex justify-between flex-wrap grid-cols-3 lg:grid lg:grid-flow-col gap-6 text-sm mt-6 lg:mt-0">
-                <li><Link className="hover:text-ignota-hover" to="terms-of-use">Terms of use</Link></li>
+                {/*<li><Link className="hover:text-ignota-hover" to="terms-of-use">Terms of use</Link></li>*/}
+                <li><Link className="hover:text-ignota-hover" to="">Terms of use</Link></li>
                 <li><Link className="hover:text-ignota-hover" to="">Personal data</Link></li>
                 <li><Link className="hover:text-ignota-hover" to="">Cookie policy</Link></li>
                 <li className="basis-full lg:basis-auto before:content-none lg:before:content-[''] before:w-0 before:border-l before:border-l-ignota-white before:mr-6">
