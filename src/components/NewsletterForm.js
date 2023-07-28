@@ -9,7 +9,7 @@ const NewsletterForm = () => {
     const [recaptchaValue, setRecaptchaValue] = useState('');
     const [recaptchaError, setRecaptchaError] = useState('');
 
-    const TEST_SITE_KEY = "6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g";
+    const TEST_SITE_KEY = "6LdYN-0jAAAAAFZqvtF3b5t111STynpfvUcGNeRi";
     const DELAY = 1500;
 
 
@@ -106,7 +106,7 @@ const NewsletterForm = () => {
                             </button>
                             <div>
                                 <ReCAPTCHA
-                                    sitekey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g"
+                                    sitekey="6LdYN-0jAAAAAFZqvtF3b5t111STynpfvUcGNeRi"
                                     onChange={handleRecaptchaChange}
                                 />
                                 {recaptchaError && <p>{recaptchaError}</p>}
