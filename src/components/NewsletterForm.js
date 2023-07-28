@@ -1,16 +1,20 @@
 import React, {useState} from "react";
 import {useInView} from "react-intersection-observer";
 import { useForm } from "react-hook-form";
-// import ReCAPTCHA from "react-google-recaptcha";
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+import ReCAPTCHA from "react-google-recaptcha";
+
 const NewsletterForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [submitted, setSubmitted] = useState(false);
     const [recaptchaValue, setRecaptchaValue] = useState('');
     const [recaptchaError, setRecaptchaError] = useState('');
+
+    const TEST_SITE_KEY = "6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g";
+    const DELAY = 1500;
+
+
     const handleRecaptchaChange = (value) => {
-        setRecaptchaValue(value);
-        setRecaptchaError('');
+        console.log("Captcha value:", value);
     };
     const onSubmit = async data => {
         if (!recaptchaValue) {
@@ -63,61 +67,57 @@ const NewsletterForm = () => {
                         How can we address you?
                     </p>
                 </div>
-                <GoogleReCaptchaProvider
-                    reCaptchaKey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g"
-                >
                 <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className="md:pt-12 group form-invalid" method="post" action="https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json">
 
                     {submitted ?
                         <p className="text-md md:text-center">Thank you for your submission</p>
-                     : <div className="grid grid-cols-1 gap-6 mb-16">
-                        <div className="relative z-10">
-                            <input id="input-name" placeholder=" " type="text" {...register("Name", { required: "The name field is required" })} className={`${errors.Name ? "!border-b-ignota-red !text-ignota-red" : ""} font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer`} />
-                            {/* errors will return when field validation fails  */}
-                            {errors.Name &&
-                                <p role="alert" className="mt-2 text-sm text-ignota-red text-right">
-                                    {errors.Name?.message}
-                                </p>}
-                            <label
-                                className={`${errors.Name&& "!text-ignota-red"} absolute text-md text-ignota-white duration-300 transform -translate-y-8 scale-75 top-8 -z-5 origin-[0] peer-focus:left-0 peer-hover:text-ignota-gray-2 peer-focus:text-ignota-orange-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8`}
-                                htmlFor="input-name">Your name</label>
-                        </div>
-                        <div className="relative z-10">
-                            <input id="input-email" placeholder=" " type="text" {...register("Email", { required: "Email Address is required", validate: {
-                                    maxLength: (v) =>
-                                        v.length <= 50 || "The email should have at most 50 characters",
-                                    matchPattern: (v) =>
-                                        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-                                        "Email address must be a valid address",
-                                } })}   className={`${errors.Email ? "!border-b-ignota-red !text-ignota-red" : ""} font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white !bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer`} />
-                            {/* errors will return when field validation fails  */}
-                            {errors.Email &&
-                                <p role="alert" className="mt-2 text-sm !text-ignota-red text-right">
-                                    {errors.Email?.message}
-                                </p>}
-                            <label
-                                className={`${errors.Email&& "!text-ignota-red"} absolute text-md text-ignota-white duration-300 transform -translate-y-8 scale-75 top-8 -z-5 origin-[0] peer-focus:left-0 peer-hover:text-ignota-gray-2 peer-focus:text-ignota-orange-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8`}
-                                htmlFor="input-email">Your email</label>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                            <button type="submit" className="text-ignota-black bg-ignota-pink-1 text-md hover:bg-ignota-pink-2 focus:ring-0 font-medium rounded-full px-8 py-4 focus:outline-none g-recaptcha max-w-[240px]">
-                                Submit
-                            </button>
-                            <div>
-                                {/*<ReCAPTCHA*/}
-                                {/*    sitekey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g"*/}
-                                {/*    onChange={handleRecaptchaChange}*/}
-                                {/*/>*/}
-                                {recaptchaError && <p>{recaptchaError}</p>}
+                        : <div className="grid grid-cols-1 gap-6 mb-16">
+                            <div className="relative z-10">
+                                <input id="input-name" placeholder=" " type="text" {...register("Name", { required: "The name field is required" })} className={`${errors.Name ? "!border-b-ignota-red !text-ignota-red" : ""} font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer`} />
+                                {/* errors will return when field validation fails  */}
+                                {errors.Name &&
+                                    <p role="alert" className="mt-2 text-sm text-ignota-red text-right">
+                                        {errors.Name?.message}
+                                    </p>}
+                                <label
+                                    className={`${errors.Name&& "!text-ignota-red"} absolute text-md text-ignota-white duration-300 transform -translate-y-8 scale-75 top-8 -z-5 origin-[0] peer-focus:left-0 peer-hover:text-ignota-gray-2 peer-focus:text-ignota-orange-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8`}
+                                    htmlFor="input-name">Your name</label>
                             </div>
+                            <div className="relative z-10">
+                                <input id="input-email" placeholder=" " type="text" {...register("Email", { required: "Email Address is required", validate: {
+                                        maxLength: (v) =>
+                                            v.length <= 50 || "The email should have at most 50 characters",
+                                        matchPattern: (v) =>
+                                            /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+                                            "Email address must be a valid address",
+                                    } })}   className={`${errors.Email ? "!border-b-ignota-red !text-ignota-red" : ""} font-sans block pt-8 pb-4 px-0 w-full text-md text-ignota-white !bg-ignota-black border-0 border-b border-b-ignota-white appearance-none hover:text-ignota-gray-2 hover:border-ignota-pink-1 focus:outline-none focus:ring-0 focus:border-ignota-pink-1 peer`} />
+                                {/* errors will return when field validation fails  */}
+                                {errors.Email &&
+                                    <p role="alert" className="mt-2 text-sm !text-ignota-red text-right">
+                                        {errors.Email?.message}
+                                    </p>}
+                                <label
+                                    className={`${errors.Email&& "!text-ignota-red"} absolute text-md text-ignota-white duration-300 transform -translate-y-8 scale-75 top-8 -z-5 origin-[0] peer-focus:left-0 peer-hover:text-ignota-gray-2 peer-focus:text-ignota-orange-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8`}
+                                    htmlFor="input-email">Your email</label>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                                <button type="submit" className="text-ignota-black bg-ignota-pink-1 text-md hover:bg-ignota-pink-2 focus:ring-0 font-medium rounded-full px-8 py-4 focus:outline-none g-recaptcha max-w-[240px]">
+                                    Submit
+                                </button>
+                                <div>
+                                    <ReCAPTCHA
+                                        sitekey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g"
+                                        onChange={handleRecaptchaChange}
+                                    />
+                                    {recaptchaError && <p>{recaptchaError}</p>}
+                                </div>
 
 
 
+                            </div>
                         </div>
-                    </div>
                     }
                 </form>
-                </GoogleReCaptchaProvider>
             </div>
 
         </section>
