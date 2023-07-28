@@ -7,11 +7,11 @@ const NewsletterForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [submitted, setSubmitted] = useState(false);
     const [recaptchaToken, setrecaptchaToken] = useState('');
-    const [recaptchaError, setRecaptchaError] = useState('');
-    const handleRecaptchaChange = (value) => {
-        setrecaptchaToken(value);
-        setRecaptchaError('');
-    };
+    // const [recaptchaError, setRecaptchaError] = useState('');
+    // const handleRecaptchaChange = (value) => {
+    //     setrecaptchaToken(value);
+    //     setRecaptchaError('');
+    // };
 
     const YourReCaptchaComponent = () => {
         const { executeRecaptcha } = useGoogleReCaptcha();
@@ -34,7 +34,9 @@ const NewsletterForm = () => {
             handleReCaptchaVerify();
         }, [handleReCaptchaVerify]);
 
-        return <button onClick={handleReCaptchaVerify}>Verify recaptcha</button>;
+        return <button type="submit" className="text-ignota-black bg-ignota-pink-1 text-md hover:bg-ignota-pink-2 focus:ring-0 font-medium rounded-full px-8 py-4 focus:outline-none g-recaptcha max-w-[240px]">
+            Submit
+        </button>;
     };
 
     const onSubmit = async data => {
@@ -122,18 +124,16 @@ const NewsletterForm = () => {
                                     htmlFor="input-email">Your email</label>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                                <button type="submit" className="text-ignota-black bg-ignota-pink-1 text-md hover:bg-ignota-pink-2 focus:ring-0 font-medium rounded-full px-8 py-4 focus:outline-none g-recaptcha max-w-[240px]">
-                                    Submit
-                                </button>
+                                <GoogleReCaptchaProvider reCaptchaKey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g">
+                                    <YourReCaptchaComponent />
+                                </GoogleReCaptchaProvider>
                                 <div>
-                                    <GoogleReCaptchaProvider reCaptchaKey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g">
-                                        <YourReCaptchaComponent />
-                                    </GoogleReCaptchaProvider>
+
                                     {/*<ReCAPTCHA*/}
                                     {/*    sitekey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g"*/}
                                     {/*    onChange={handleRecaptchaChange}*/}
                                     {/*/>*/}
-                                    {recaptchaError && <p>{recaptchaError}</p>}
+                                    {/*{recaptchaError && <p>{recaptchaError}</p>}*/}
                                 </div>
 
 
