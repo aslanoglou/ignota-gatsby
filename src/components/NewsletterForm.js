@@ -6,10 +6,10 @@ import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recapt
 const NewsletterForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [submitted, setSubmitted] = useState(false);
-    const [recaptchaValue, setRecaptchaValue] = useState('');
+    const [recaptchaToken, setrecaptchaToken] = useState('');
     const [recaptchaError, setRecaptchaError] = useState('');
     const handleRecaptchaChange = (value) => {
-        setRecaptchaValue(value);
+        setrecaptchaToken(value);
         setRecaptchaError('');
     };
 
@@ -24,7 +24,8 @@ const NewsletterForm = () => {
             }
 
             const token = await executeRecaptcha('yourAction');
-            console.log(token)
+            setrecaptchaToken(token);
+            // console.log(token)
             // Do whatever you want with the token
         }, [executeRecaptcha]);
 
@@ -37,30 +38,30 @@ const NewsletterForm = () => {
     };
 
     const onSubmit = async data => {
-        if (!recaptchaValue) {
+        if (!recaptchaToken) {
             // console.error('Please complete the reCAPTCHA');
             return;
         } else {
-            // console.log(recaptchaValue)
-        }
-        try {
-            const response = await fetch('https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
+            try {
+                const response = await fetch('https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
 
-            if (response.ok) {
-                // Handle successful response
-                setSubmitted(true);
-                // console.log('Data submitted successfully');
-            } else {
-                // Handle error response
-                // console.error('Failed to submit data');
-            }
-        } catch (error) {
+                if (response.ok) {
+                    // Handle successful response
+                    setSubmitted(true);
+                    // console.log('Data submitted successfully');
+                } else {
+                    // Handle error response
+                    // console.error('Failed to submit data');
+                }
+            } catch (error) {
+        }
+
             // Handle network error
             // console.error('An error occurred', error);
         }
