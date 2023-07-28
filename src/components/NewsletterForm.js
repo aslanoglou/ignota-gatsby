@@ -8,13 +8,9 @@ const NewsletterForm = () => {
     const [submitted, setSubmitted] = useState(false);
     const [recaptchaValue, setRecaptchaValue] = useState('');
     const [recaptchaError, setRecaptchaError] = useState('');
-
-    const TEST_SITE_KEY = "6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g";
-    const DELAY = 1500;
-
-
     const handleRecaptchaChange = (value) => {
-        console.log("Captcha value:", value);
+        setRecaptchaValue(value);
+        setRecaptchaError('');
     };
     const onSubmit = async data => {
         if (!recaptchaValue) {
