@@ -1,20 +1,16 @@
 import React, {useState} from "react";
 import {useInView} from "react-intersection-observer";
 import { useForm } from "react-hook-form";
-import ReCAPTCHA from "react-google-recaptcha";
-
+// import ReCAPTCHA from "react-google-recaptcha";
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 const NewsletterForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [submitted, setSubmitted] = useState(false);
     const [recaptchaValue, setRecaptchaValue] = useState('');
     const [recaptchaError, setRecaptchaError] = useState('');
-
-    const TEST_SITE_KEY = "6LdYN-0jAAAAAFZqvtF3b5t111STynpfvUcGNeRi";
-    const DELAY = 1500;
-
-
     const handleRecaptchaChange = (value) => {
-        console.log("Captcha value:", value);
+        setRecaptchaValue(value);
+        setRecaptchaError('');
     };
     const onSubmit = async data => {
         if (!recaptchaValue) {
@@ -67,6 +63,9 @@ const NewsletterForm = () => {
                         How can we address you?
                     </p>
                 </div>
+                <GoogleReCaptchaProvider
+                    reCaptchaKey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g"
+                >
                 <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className="md:pt-12 group form-invalid" method="post" action="https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json">
 
                     {submitted ?
@@ -105,10 +104,10 @@ const NewsletterForm = () => {
                                 Submit
                             </button>
                             <div>
-                                <ReCAPTCHA
-                                    sitekey="6LdYN-0jAAAAAFZqvtF3b5t111STynpfvUcGNeRi"
-                                    onChange={handleRecaptchaChange}
-                                />
+                                {/*<ReCAPTCHA*/}
+                                {/*    sitekey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g"*/}
+                                {/*    onChange={handleRecaptchaChange}*/}
+                                {/*/>*/}
                                 {recaptchaError && <p>{recaptchaError}</p>}
                             </div>
 
@@ -118,6 +117,7 @@ const NewsletterForm = () => {
                     </div>
                     }
                 </form>
+                </GoogleReCaptchaProvider>
             </div>
 
         </section>
