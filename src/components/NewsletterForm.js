@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, {useState, useCallback, useEffect} from "react";
 import {useInView} from "react-intersection-observer";
 import { useForm } from "react-hook-form";
-import ReCAPTCHA from "react-google-recaptcha";
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const NewsletterForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -12,6 +12,30 @@ const NewsletterForm = () => {
         setRecaptchaValue(value);
         setRecaptchaError('');
     };
+
+    const YourReCaptchaComponent = () => {
+        const { executeRecaptcha } = useGoogleReCaptcha();
+
+        // Create an event handler so you can call the verification on button click event or form submit
+        const handleReCaptchaVerify = useCallback(async () => {
+            if (!executeRecaptcha) {
+                console.log('Execute recaptcha not yet available');
+                return;
+            }
+
+            const token = await executeRecaptcha('yourAction');
+            console.log(token)
+            // Do whatever you want with the token
+        }, [executeRecaptcha]);
+
+        // You can use useEffect to trigger the verification as soon as the component being loaded
+        useEffect(() => {
+            handleReCaptchaVerify();
+        }, [handleReCaptchaVerify]);
+
+        return <button onClick={handleReCaptchaVerify}>Verify recaptcha</button>;
+    };
+
     const onSubmit = async data => {
         if (!recaptchaValue) {
             // console.error('Please complete the reCAPTCHA');
@@ -101,10 +125,13 @@ const NewsletterForm = () => {
                                     Submit
                                 </button>
                                 <div>
-                                    <ReCAPTCHA
-                                        sitekey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g"
-                                        onChange={handleRecaptchaChange}
-                                    />
+                                    <GoogleReCaptchaProvider reCaptchaKey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g">
+                                        <YourReCaptchaComponent />
+                                    </GoogleReCaptchaProvider>
+                                    {/*<ReCAPTCHA*/}
+                                    {/*    sitekey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g"*/}
+                                    {/*    onChange={handleRecaptchaChange}*/}
+                                    {/*/>*/}
                                     {recaptchaError && <p>{recaptchaError}</p>}
                                 </div>
 
