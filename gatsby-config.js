@@ -65,7 +65,7 @@ module.exports = {
             resolve: 'gatsby-source-filesystem',
             options: {
                 defaults: {
-                    quality: 80
+                    quality: 100
                 },
                 "name": "images",
                 "path": "./src/images/"
