@@ -12,7 +12,7 @@ const Services = () =>{
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
                     <div>
-                        <StaticImage src="../images/envision-icon.svg" alt="Envision"></StaticImage>
+                        <StaticImage src="../images/envision-icon.svg" width={64} height={64} quality={100} placeholder="blurred" layout="fixed" alt="Envision"></StaticImage>
                         <h3 className="relative font-NeueMachina text-lg leading-sm pb-6 mb-6 mt-4 after:block after:absolute after:bottom-0 after:border-t after:border-t-ignota-white data-[inviewport=false]:after:w-0 data-[inviewport=true]:after:w-full transition after:ease-in-out after:duration-700 after:delay-1000"
                             data-inviewport={inView.toString()}>
                             Envision
@@ -24,7 +24,7 @@ const Services = () =>{
                         </ul>
                     </div>
                     <div>
-                        <StaticImage src="../images/craft-icon.svg" alt="Craft"></StaticImage>
+                        <StaticImage src="../images/craft-icon.svg" width={65} height={64} quality={100} placeholder="blurred" layout="fixed" alt="Craft"></StaticImage>
                         <h3 className="relative font-machina text-lg leading-sm pb-6 mb-6 mt-4 after:block after:absolute after:bottom-0 after:border-t after:border-t-ignota-white data-[inviewport=false]:after:w-0 data-[inviewport=true]:after:w-full transition after:ease-in-out after:duration-700 after:delay-1000"
                             data-inviewport={inView.toString()}>
                             Craft
@@ -36,7 +36,7 @@ const Services = () =>{
                         </ul>
                     </div>
                     <div>
-                        <StaticImage src="../images/optimize-icon.svg" alt="Optimize"></StaticImage>
+                        <StaticImage src="../images/optimize-icon.svg" width={65} height={64} quality={100} placeholder="blurred" layout="fixed" alt="Optimize"></StaticImage>
                         <h3 className="relative font-machina text-lg leading-sm pb-6 mb-6 mt-4 after:block after:absolute after:bottom-0 after:border-t after:border-t-ignota-white data-[inviewport=false]:after:w-0 data-[inviewport=true]:after:w-full transition after:ease-in-out after:duration-700 after:delay-1000"
                             data-inviewport={inView.toString()}>
                             Optimize

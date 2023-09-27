@@ -8,7 +8,7 @@ module.exports = {
         icon: `/images/favicon.svg`,
         description: `Accelerate your digital transformation journenpm instally by delivering customer-centric experiences that are designed to maximize your revenue`,
     },
-    plugins: ["gatsby-plugin-postcss", "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-plugin-sitemap",
+    plugins: ["gatsby-plugin-postcss", "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sitemap",
         {
             resolve: "gatsby-plugin-google-tagmanager",
             options: {
@@ -61,25 +61,12 @@ module.exports = {
             options: {
                 "icon": "src/images/favicon.svg"
             }
-        }, "gatsby-plugin-sharp", {
-            resolve: `gatsby-plugin-sharp`,
+        }, "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
+            resolve: 'gatsby-source-filesystem',
             options: {
-                defaults: {
-                    formats: [`auto`, `webp`],
-                    placeholder: `dominantColor`,
-                    quality: 100,
-                    breakpoints: [720, 980, 1280, 1920],
-                    backgroundColor: `transparent`,
-                    blurredOptions: {},
-                    jpgOptions: {},
-                    pngOptions: {},
-                    webpOptions: {
-                        quality: 100,
-                    },
-                    avifOptions: {},
-                },
+                "name": "images",
+                "path": "./src/images/"
             },
-        },
-        `gatsby-transformer-sharp`,
-        `gatsby-plugin-image`,]
+            __key: "images"
+        }]
 };
