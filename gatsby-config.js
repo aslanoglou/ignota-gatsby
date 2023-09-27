@@ -64,6 +64,9 @@ module.exports = {
         }, "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
             resolve: 'gatsby-source-filesystem',
             options: {
+                defaults: {
+                    quality: 80
+                },
                 "name": "images",
                 "path": "./src/images/"
             },
