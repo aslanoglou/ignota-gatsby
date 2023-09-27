@@ -3,10 +3,10 @@
  */
 module.exports = {
     siteMetadata: {
-        title: `Ignota`,
+        title: `ignota.io`,
         siteUrl: `https://ignota.io/`,
-        image: `/images/icon.png`,
-        description: `We help accelerate your digital transformation journenpm instally by delivering customer-centric experiences that are designed to maximize your revenue`,
+        icon: `/images/favicon.svg`,
+        description: `Accelerate your digital transformation journenpm instally by delivering customer-centric experiences that are designed to maximize your revenue`,
     },
     plugins: ["gatsby-plugin-postcss", "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sitemap",
         {
@@ -59,7 +59,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                "icon": "src/images/icon.png"
+                "icon": "src/images/favicon.svg"
             }
         }, "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
             resolve: 'gatsby-source-filesystem',
