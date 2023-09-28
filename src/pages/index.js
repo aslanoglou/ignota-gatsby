@@ -41,4 +41,4 @@ const IndexPage = () => {
 
 export default IndexPage
 
-export const Head = () => <title>ignota.io consulting</title>
+export const Head = () => <title>ignota.io | accelerate your digital transformation</title>
