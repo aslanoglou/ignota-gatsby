@@ -8,7 +8,7 @@ module.exports = {
         icon: `/images/favicon.svg`,
         description: `Accelerate your digital transformation journenpm instally by delivering customer-centric experiences that are designed to maximize your revenue`,
     },
-    plugins: ["gatsby-plugin-postcss", "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-plugin-sitemap",
+    plugins: [
         {
             resolve: "gatsby-plugin-google-tagmanager",
             options: {

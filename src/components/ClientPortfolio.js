@@ -1,5 +1,14 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image"
+// import { StaticImage } from "gatsby-plugin-image"
+import Dei from "../images/logo-dei.svg"
+import Alpha from "../images/logo-alpha.svg"
+import Ergo from "../images/logo-ergo.svg"
+import Deddie from "../images/logo-deddie.svg"
+import Metro from "../images/logo-metro.svg"
+import Sport24 from "../images/logo-sport24.svg"
+import Flexfin from "../images/logo-flexfin.svg"
+import Trainme from "../images/logo-trainme.svg"
+import Oseven from "../images/logo-oseven.svg"
 import { useInView } from "react-intersection-observer";
 
 
@@ -14,15 +23,15 @@ const ClientPortfolio =() =>{
                 </h2>
                 <div className="md:pt-12">
                     <ul className="grid gap-12 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3">
-                        <li><StaticImage src="../images/logo-dei.svg" width={160} height={69} quality={100} placeholder="blurred" layout="fixed" alt="DEH"></StaticImage></li>
-                        <li><StaticImage src="../images/logo-alpha.svg" width={161} height={68} quality={100} placeholder="blurred" layout="fixed" alt="ALPHA BANK"></StaticImage></li>
-                        <li><StaticImage src="../images/logo-ergo.svg" width={160} height={68} quality={100} placeholder="blurred" layout="fixed" alt="ERGO"></StaticImage></li>
-                        <li><StaticImage src="../images/logo-deddie.svg" width={160} height={68} quality={100} placeholder="blurred" layout="fixed" alt="DEDDIE"></StaticImage></li>
-                        <li><StaticImage src="../images/logo-metro.svg" width={160} height={68} quality={100} placeholder="blurred" layout="fixed" alt="METRO CASH & CARRY"></StaticImage></li>
-                        <li><StaticImage src="../images/logo-sport24.svg" width={160} height={68} quality={100} placeholder="blurred" layout="fixed" alt="SPORT24"></StaticImage></li>
-                        <li><StaticImage src="../images/logo-flexfin.svg" width={160} height={68} quality={100} placeholder="blurred" layout="fixed" alt="Flexfin"></StaticImage></li>
-                        <li><StaticImage src="../images/logo-trainme.svg" width={160} height={68} quality={100} placeholder="blurred" layout="fixed" alt="trainme"></StaticImage></li>
-                        <li><StaticImage src="../images/logo-oseven.svg" width={160} height={68} quality={100} placeholder="blurred" layout="fixed" alt="OSEVEN"></StaticImage></li>
+                        <li><Dei width={160} height={69} alt="DEH"></Dei></li>
+                        <li><Alpha width={161} height={68} alt="ALPHA BANK"></Alpha></li>
+                        <li><Ergo width={160} height={68} alt="ERGO"></Ergo></li>
+                        <li><Deddie width={160} height={68} alt="DEDDIE"></Deddie></li>
+                        <li><Metro width={160} height={68} alt="METRO CASH & CARRY"></Metro></li>
+                        <li><Sport24 width={160} height={68} alt="SPORT24"></Sport24></li>
+                        <li><Flexfin width={160} height={68} alt="Flexfin"></Flexfin></li>
+                        <li><Trainme  width={160} height={68} alt="trainme"></Trainme></li>
+                        <li><Oseven width={160} height={68} alt="OSEVEN"></Oseven></li>
                     </ul>
                 </div>
             </div>
