@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import Logo from "../images/logo.svg";
 import {useInView} from "react-intersection-observer";
 import {Link} from "gatsby";
 
@@ -10,7 +10,7 @@ const Footer = () => {
     <footer ref={ref} className="py-10 2xl:container 2xl:mx-auto overflow-hidden">
         <div className="flex flex-col justify-between lg:flex-row data-[inviewport=false]:invisible data-[inviewport=false]:opacity-0 data-[inviewport=false]:tranform data-[inviewport=false]:translate-y-20 transition ease-in-out duration-700 delay-300" data-inviewport={inView.toString()}>
             <Link to="/">
-                <StaticImage src="../images/logo.svg" alt="Ignota" className="inline-block"></StaticImage>
+                <Logo width={154} height={42} alt="Ignota" className="inline-block"></Logo>
             </Link>
             {/*<ul className="flex justify-between flex-wrap grid-cols-3 lg:grid lg:grid-flow-col gap-6 text-sm mt-6 lg:mt-0">*/}
             <ul className="flex justify-end flex-wrap grid-cols-1 lg:grid lg:grid-flow-col gap-6 text-sm mt-6 lg:mt-0">
