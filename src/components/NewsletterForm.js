@@ -19,7 +19,7 @@ const NewsletterForm = () => {
                 return;
             }
 
-            const token = await executeRecaptcha('yourAction');
+            const token = await executeRecaptcha(onSubmit);
             setrecaptchaToken(token);
             // console.log(token)
             // Do whatever you want with the token
