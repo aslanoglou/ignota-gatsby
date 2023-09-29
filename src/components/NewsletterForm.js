@@ -6,7 +6,7 @@ import {GoogleReCaptchaProvider, useGoogleReCaptcha} from 'react-google-recaptch
 const NewsletterForm = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const [submitted, setSubmitted] = useState(false);
-    // const [recaptchaToken, setrecaptchaToken] = useState('');
+    const [recaptchaToken, setrecaptchaToken] = useState('');
     const {ref, inView} = useInView({triggerOnce: true});
 
     const YourReCaptchaComponent = () => {
@@ -20,7 +20,7 @@ const NewsletterForm = () => {
             }
 
             const token = await executeRecaptcha('yourAction');
-            // setrecaptchaToken(token);
+            setrecaptchaToken(token);
             // console.log(token)
             // Do whatever you want with the token
         }, [executeRecaptcha]);
@@ -36,7 +36,7 @@ const NewsletterForm = () => {
     };
 
     const onSubmit = async data => {
-        if (!token) {
+        if (!recaptchaToken) {
             // console.error('Please complete the reCAPTCHA');
         } else {
             try {
