@@ -6,7 +6,7 @@ import {GoogleReCaptchaProvider, useGoogleReCaptcha} from 'react-google-recaptch
 const NewsletterForm = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const [submitted, setSubmitted] = useState(false);
-    const [recaptchaToken, setrecaptchaToken] = useState('');
+    // const [recaptchaToken, setrecaptchaToken] = useState('');
     const {ref, inView} = useInView({triggerOnce: true});
 
     const YourReCaptchaComponent = () => {
@@ -15,13 +15,13 @@ const NewsletterForm = () => {
         // Create an event handler so you can call the verification on button click event or form submit
         const handleReCaptchaVerify = useCallback(async () => {
             if (!executeRecaptcha) {
-                console.log('Execute recaptcha not yet available');
+                // console.log('Execute recaptcha not yet available');
                 return;
             }
 
             const token = await executeRecaptcha('yourAction');
-            setrecaptchaToken(token);
-            console.log(token)
+            // setrecaptchaToken(token);
+            // console.log(token)
             // Do whatever you want with the token
         }, [executeRecaptcha]);
 
@@ -36,8 +36,8 @@ const NewsletterForm = () => {
     };
 
     const onSubmit = async data => {
-        if (!recaptchaToken) {
-            console.error('Please complete the reCAPTCHA');
+        if (!token) {
+            // console.error('Please complete the reCAPTCHA');
         } else {
             try {
                 const response = await fetch('https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json', {
@@ -49,10 +49,10 @@ const NewsletterForm = () => {
                 if (response.ok) {
                     // Handle successful response
                     setSubmitted(true);
-                    console.log('Data submitted successfully');
+                    // console.log('Data submitted successfully');
                 } else {
                     // Handle error response
-                    console.error('Failed to submit data');
+                    // console.error('Failed to submit data');
                 }
             } catch (error) {
                 console.error('An error occurred', error);
