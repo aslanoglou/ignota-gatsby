@@ -18,8 +18,7 @@ const IndexPage = () => {
                 <section className="md:mb-[256px] mb-[181px]" ref={ref}>
                     <p className="xl:max-w-[784px] text-md mb-12 data-[inviewport=false]:invisible data-[inviewport=false]:opacity-0 data-[inviewport=false]:tranform data-[inviewport=false]:translate-y-20 transition ease-in-out duration-700 delay-300"
                        data-inviewport={inView.toString()}>
-                        Accelerate your digital transformation journey by delivering customer-centric experiences that
-                        are designed to maximize your revenue
+                        Accelerate your digital transformation journey by delivering human-centric experiences that are designed to maximize business growth
                     </p>
                 </section>
                 <section className="md:mb-[256px] mb-[181px] pb-[56.25%] relative">
