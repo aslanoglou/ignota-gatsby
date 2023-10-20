@@ -22,9 +22,7 @@ const IndexPage = () => {
           </p>
         </section>
         <section className="md:mb-[256px] mb-[181px] pb-[56.25%] relative">
-          <iframe className="absolute top-0 left-0 w-[100%] h-[100%] data-[inviewport=false]:invisible data-[inviewport=false]:opacity-0 data-[inviewport=false]:tranform data-[inviewport=false]:translate-y-20 transition ease-in-out duration-700 delay-300" title="Ignota"
-                  src="https://player.vimeo.com/video/836512442?h=fce1e11985" width="1600" height="900" frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture" allowFullScreen data-inviewport={inView.toString()}>Ignota</iframe>
+          <iframe className="absolute top-0 left-0 w-[100%] h-[100%] data-[inviewport=false]:invisible data-[inviewport=false]:opacity-0 data-[inviewport=false]:tranform data-[inviewport=false]:translate-y-20 transition ease-in-out duration-700 delay-300" title="Ignota" src="https://player.vimeo.com/video/836512442?h=fce1e11985&autoplay=1&loop=1&background=1" width="1600" height="900" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen="" data-inviewport="false">Ignota</iframe>
         </section>
         <Services></Services>
         <ClientPortfolio></ClientPortfolio>
