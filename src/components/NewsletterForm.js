@@ -21,7 +21,7 @@ const NewsletterForm = () => {
 
             const token = await executeRecaptcha();
             setrecaptchaToken(token);
-            console.log(token)
+            // console.log(token)
             // Do whatever you want with the token
         }, [executeRecaptcha]);
 
