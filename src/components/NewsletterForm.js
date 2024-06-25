@@ -2,6 +2,7 @@ import React, {useState, useCallback, useEffect} from "react";
 import {useInView} from "react-intersection-observer";
 import {useForm} from "react-hook-form";
 import {GoogleReCaptchaProvider, useGoogleReCaptcha} from 'react-google-recaptcha-v3';
+import ReactDom from "react-dom";
 
 const NewsletterForm = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
@@ -112,9 +113,7 @@ const NewsletterForm = () => {
                                 htmlFor="input-email">Your email</label>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                            <GoogleReCaptchaProvider reCaptchaKey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g">
-                                <YourReCaptchaComponent/>
-                            </GoogleReCaptchaProvider>
+
                         </div>
                     </div>}
             </form>
@@ -122,5 +121,11 @@ const NewsletterForm = () => {
 
     </section>)
 }
+
+ReactDom.render(
+    <GoogleReCaptchaProvider reCaptchaKey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g">
+        <YourReCaptchaComponent/>
+    </GoogleReCaptchaProvider>
+);
 
 export default NewsletterForm;
