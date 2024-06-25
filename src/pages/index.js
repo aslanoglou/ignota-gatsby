@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import HomepageHero from "../components/HomepageHero";
 import Services from "../components/Services";
 import ClientPortfolio from "../components/ClientPortfolio";
-import NewsletterForm from "../components/NewsletterForm";
+// import NewsletterForm from "../components/NewsletterForm";
 import Follow from "../components/Follow";
 import BehancePorfolio from "../components/BehancePorfolio";
 import Footer from "../components/Footer"
@@ -32,7 +32,7 @@ const IndexPage = () => {
                 </section>
                 <Services></Services>
                 <ClientPortfolio></ClientPortfolio>
-                <NewsletterForm></NewsletterForm>
+                {/*<NewsletterForm></NewsletterForm>*/}
                 <div className="md:mb-[256px] mb-[181px] grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-20">
                     <Follow></Follow>
                     <BehancePorfolio></BehancePorfolio>
