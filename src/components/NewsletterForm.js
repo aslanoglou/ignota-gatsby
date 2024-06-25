@@ -1,12 +1,9 @@
 import React, {useState, useCallback, useEffect} from "react";
-import ReactDOM from "react-dom/client";
 import {useInView} from "react-intersection-observer";
 import {useForm} from "react-hook-form";
 import {GoogleReCaptchaProvider, useGoogleReCaptcha} from 'react-google-recaptcha-v3';
 
 const NewsletterForm = () => {
-    const root = ReactDOM.createRoot(container)
-    root.render(element)
     const {register, handleSubmit, formState: {errors}} = useForm();
     const [submitted, setSubmitted] = useState(false);
     const [recaptchaToken, setrecaptchaToken] = useState('');
