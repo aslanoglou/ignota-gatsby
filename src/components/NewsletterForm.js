@@ -11,7 +11,7 @@ const NewsletterForm = () => {
     const [recaptchaToken, setRecaptchaToken] = useState(null);
 
     const handleToken = (token) => {
-        console.log('ReCAPTCHA token:', token);
+        // console.log('ReCAPTCHA token:', token);
         setRecaptchaToken(token);
     };
 
