@@ -9,22 +9,25 @@ const NewsletterForm = () => {
     const [recaptchaToken, setrecaptchaToken] = useState('');
     const {ref, inView} = useInView({triggerOnce: true});
 
+    const {executeRecaptcha} = useGoogleReCaptcha();
+
+    // Create an event handler so you can call the verification on button click event or form submit
+    const handleReCaptchaVerify = useCallback(async () => {
+        if (!executeRecaptcha) {
+            // console.log('Execute recaptcha not yet available');
+            return;
+        }
+
+        const token = await executeRecaptcha();
+        console.log(token);
+        setrecaptchaToken(token);
+        await onSubmit();
+        // console.log(token)
+        // Do whatever you want with the token
+    }, [executeRecaptcha]);
+
     const YourReCaptchaComponent = () => {
-        const {executeRecaptcha} = useGoogleReCaptcha();
 
-        // Create an event handler so you can call the verification on button click event or form submit
-        const handleReCaptchaVerify = useCallback(async () => {
-            if (!executeRecaptcha) {
-                // console.log('Execute recaptcha not yet available');
-                return;
-            }
-
-            const token = await executeRecaptcha();
-            console.log(token);
-            setrecaptchaToken(token);
-            // console.log(token)
-            // Do whatever you want with the token
-        }, [executeRecaptcha]);
 
         // You can use useEffect to trigger the verification as soon as the component being loaded
         // useEffect(() => {
@@ -77,7 +80,7 @@ const NewsletterForm = () => {
                     How can we address you?
                 </p>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className="md:pt-12 group form-invalid"
+            <form onSubmit={handleSubmit(handleReCaptchaVerify)} autoComplete="off" className="md:pt-12 group form-invalid"
                   method="post"
                   action="https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json">
 
