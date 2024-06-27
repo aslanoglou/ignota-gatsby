@@ -28,7 +28,7 @@ const NewsletterForm = () => {
         // You can use useEffect to trigger the verification as soon as the component being loaded
         useEffect(() => {
             handleReCaptchaVerify();
-        }, [handleReCaptchaVerify]);
+        }, []);
 
         return <button type="submit" onClick={handleReCaptchaVerify} className="text-ignota-black bg-ignota-pink-1 text-md hover:bg-ignota-pink-2 focus:ring-0 font-medium rounded-full px-8 py-4 focus:outline-none g-recaptcha max-w-[240px]">
             Submit
