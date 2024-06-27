@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useEffect} from "react";
+import React, {useState} from "react";
 import {useInView} from "react-intersection-observer";
 import {useForm} from "react-hook-form";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -6,10 +6,15 @@ import ReCAPTCHA from "react-google-recaptcha";
 const NewsletterForm = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const [submitted, setSubmitted] = useState(false);
-    const [recaptchaToken, setrecaptchaToken] = useState(null);
+    // const [recaptchaToken, setrecaptchaToken] = useState(null);
     const {ref, inView} = useInView({triggerOnce: true});
 
     const recaptchaRef = React.createRef();
+
+    const [recaptchaToken, setRecaptchaToken] = useState(null);
+    const handleToken = (token) => { console.log('ReCAPTCHA token:', token);
+        setRecaptchaToken(token);
+    };
 
     function handleChange(value){
         console.log("onChange prop - Captcha value:", value);
@@ -21,8 +26,10 @@ const NewsletterForm = () => {
 
     const onSubmit = async data => {
         // setrecaptchaToken()
-        // console.log(recaptchaToken)
-        if (recaptchaRef.current.execute()) {
+        console.log(recaptchaRef.current.execute())
+        console.log(recaptchaRef.current.getValue())
+        recaptchaRef.current.execute()
+        if (recaptchaToken) {
             try {
                 const response = await fetch('https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json', {
                     method: 'POST', headers: {
@@ -102,7 +109,7 @@ const NewsletterForm = () => {
                                 ref={recaptchaRef}
                                 size="invisible"
                                 sitekey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g"
-                                onChange={handleChange}
+                                onChange={handleToken}
                             />
                             <button type="submit" onClick={()=>{onSubmit()}} className="text-ignota-black bg-ignota-pink-1 text-md hover:bg-ignota-pink-2 focus:ring-0 font-medium rounded-full px-8 py-4 focus:outline-none g-recaptcha max-w-[240px]">
                                 Submit
