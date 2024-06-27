@@ -1,44 +1,28 @@
 import React, {useState, useCallback, useEffect} from "react";
 import {useInView} from "react-intersection-observer";
 import {useForm} from "react-hook-form";
-import {GoogleReCaptchaProvider, useGoogleReCaptcha} from 'react-google-recaptcha-v3';
+import ReCAPTCHA from "react-google-recaptcha";
 
 const NewsletterForm = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const [submitted, setSubmitted] = useState(false);
-    const [recaptchaToken, setrecaptchaToken] = useState('');
+    const [recaptchaToken, setrecaptchaToken] = useState(null);
     const {ref, inView} = useInView({triggerOnce: true});
 
-    const YourReCaptchaComponent = () => {
-        const {executeRecaptcha} = useGoogleReCaptcha();
+    const recaptchaRef = React.createRef();
 
-        // Create an event handler so you can call the verification on button click event or form submit
-        const handleReCaptchaVerify = useCallback(async () => {
-            if (!executeRecaptcha) {
-                // console.log('Execute recaptcha not yet available');
-                return;
-            }
-
-            const token = await executeRecaptcha();
-            setrecaptchaToken(token);
-            // console.log(token)
-            // Do whatever you want with the token
-        }, [executeRecaptcha]);
-
-        // You can use useEffect to trigger the verification as soon as the component being loaded
-        useEffect(() => {
-            handleReCaptchaVerify();
-        }, []);
-
-        return <button type="submit" onClick={handleReCaptchaVerify} className="text-ignota-black bg-ignota-pink-1 text-md hover:bg-ignota-pink-2 focus:ring-0 font-medium rounded-full px-8 py-4 focus:outline-none g-recaptcha max-w-[240px]">
-            Submit
-        </button>;
-    };
+    function handleChange(value){
+        console.log("onChange prop - Captcha value:", value);
+        this.setState({ value });
+        if (value === null) {
+            console.log("error")
+        }
+    }
 
     const onSubmit = async data => {
-        if (!recaptchaToken) {
-            // console.error('Please complete the reCAPTCHA');
-        } else {
+        // setrecaptchaToken()
+        // console.log(recaptchaToken)
+        if (recaptchaRef.current.execute()) {
             try {
                 const response = await fetch('https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json', {
                     method: 'POST', headers: {
@@ -58,7 +42,8 @@ const NewsletterForm = () => {
                 console.error('An error occurred', error);
             }
 
-            // Handle network error
+        } else {
+            console.error('Please complete the reCAPTCHA');
         }
     };
 
@@ -112,9 +97,16 @@ const NewsletterForm = () => {
                                 htmlFor="input-email">Your email</label>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                            <GoogleReCaptchaProvider reCaptchaKey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g">
-                                <YourReCaptchaComponent/>
-                            </GoogleReCaptchaProvider>
+
+                            <ReCAPTCHA
+                                ref={recaptchaRef}
+                                size="invisible"
+                                sitekey="6LdYN-0jAAAAAN5HXSzGUd4RuHiRrp-Y7_N-Tj7g"
+                                onChange={handleChange}
+                            />
+                            <button type="submit" onClick={()=>{onSubmit()}} className="text-ignota-black bg-ignota-pink-1 text-md hover:bg-ignota-pink-2 focus:ring-0 font-medium rounded-full px-8 py-4 focus:outline-none g-recaptcha max-w-[240px]">
+                                Submit
+                            </button>
                         </div>
                     </div>}
             </form>
