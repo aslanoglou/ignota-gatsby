@@ -18,7 +18,7 @@ const NewsletterForm = () => {
     const onSubmit = async (data) => {
         try {
             const token = await recaptchaRef.current.executeAsync();
-            console.log('ReCAPTCHA token from executeAsync:', token);
+            // console.log('ReCAPTCHA token from executeAsync:', token);
             setRecaptchaToken(token);
 
             if (token) {
@@ -34,13 +34,13 @@ const NewsletterForm = () => {
                     setSubmitted(true);
                     reset(); // Reset form fields on successful submission
                 } else {
-                    console.error('Failed to submit data');
+                    // console.error('Failed to submit data');
                 }
             } else {
-                console.error('Please complete the reCAPTCHA');
+                // console.error('Please complete the reCAPTCHA');
             }
         } catch (error) {
-            console.error('An error occurred', error);
+            // console.error('An error occurred', error);
         }
     };
 
