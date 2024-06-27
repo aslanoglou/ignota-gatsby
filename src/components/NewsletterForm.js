@@ -8,26 +8,9 @@ const NewsletterForm = () => {
     const [submitted, setSubmitted] = useState(false);
     const [recaptchaToken, setrecaptchaToken] = useState('');
     const {ref, inView} = useInView({triggerOnce: true});
-    const {executeRecaptcha} = useGoogleReCaptcha();
 
-    useEffect(async () => {
-        // const {executeRecaptcha} = useGoogleReCaptcha();
-        {
-            if (!executeRecaptcha) {
-                // console.log('Execute recaptcha not yet available');
-                return;
-            }
-
-            const token = await executeRecaptcha();
-            console.log(token);
-            setrecaptchaToken(token);
-            // await onSubmit();
-            // console.log(token)
-            // Do whatever you want with the token
-        }
-    },[])
     const YourReCaptchaComponent = () => {
-
+        const {executeRecaptcha} = useGoogleReCaptcha();
 
         // Create an event handler so you can call the verification on button click event or form submit
         const handleReCaptchaVerify = useCallback(async () => {
@@ -37,17 +20,15 @@ const NewsletterForm = () => {
             }
 
             const token = await executeRecaptcha();
-            console.log(token);
             setrecaptchaToken(token);
-            // await onSubmit();
             // console.log(token)
             // Do whatever you want with the token
         }, [executeRecaptcha]);
 
         // You can use useEffect to trigger the verification as soon as the component being loaded
-        // useEffect(() => {
-        //     handleReCaptchaVerify();
-        // }, [handleReCaptchaVerify]);
+        useEffect(() => {
+            handleReCaptchaVerify();
+        }, [handleReCaptchaVerify]);
 
         return <button type="submit" onClick={handleReCaptchaVerify} className="text-ignota-black bg-ignota-pink-1 text-md hover:bg-ignota-pink-2 focus:ring-0 font-medium rounded-full px-8 py-4 focus:outline-none g-recaptcha max-w-[240px]">
             Submit
@@ -56,7 +37,7 @@ const NewsletterForm = () => {
 
     const onSubmit = async data => {
         if (!recaptchaToken) {
-            console.error('Please complete the reCAPTCHA');
+            // console.error('Please complete the reCAPTCHA');
         } else {
             try {
                 const response = await fetch('https://ignota-forms-default-rtdb.europe-west1.firebasedatabase.app/customers.json', {
